@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -17,10 +18,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Button btn = new Button("Click me");
+        Button exit = new Button("Exit");
         btn.setOnAction(e -> System.out.println("Hello JavaFX 15"));
+        exit.setOnAction(e-> System.exit(0));
 
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        VBox root = new VBox();
+        root.getChildren().addAll(btn, exit);
         Scene scene = new Scene(root,600,500);
 
         primaryStage.setTitle("Hello World");
