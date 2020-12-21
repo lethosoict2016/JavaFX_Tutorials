@@ -13,15 +13,16 @@ import java.awt.*;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Button btn = new Button("Click me");
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        Scene scene = new Scene(root,600,500);
-
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void start(Stage primaryStage) {
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            Scene scene = new Scene(root, 600,400);
+            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
